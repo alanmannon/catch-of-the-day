@@ -10,7 +10,12 @@ class App extends React.Component {
   };
 
   addFish = (fish) => {
-    console.log('adding fish');
+    // copies current state
+    const fishes = { ...this.state.fishes };
+    // custom name to new fish
+    fishes[`fish${Date.now()}`] = fish;
+    // updates state
+    this.setState({ fishes });
   }
   render() {
     return (
