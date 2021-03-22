@@ -19,7 +19,12 @@ class App extends React.Component {
     });
   }
 
-  componentWillMount() {
+  componentDidUpdate() {
+    console.log(this.state.order);
+    localStorage.setItem(this.props.match.params.storeId, this.state.order);
+  }
+
+  componentWillUnmount() {
     base.removeBinding(this.ref);
   };
 
